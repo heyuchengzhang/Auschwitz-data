@@ -1,0 +1,13 @@
+// Get data from "https://encyclopedia.ushmm.org/content/en/article/auschwitz"
+Hungary: 426,000
+Poland: 300,000
+France: 69,000
+Netherlands: 60,000
+Greece: 55,000
+Bohemia and Moravia: 46,000
+Slovakia: 27,000
+Belgium: 25,000
+Yugoslavia: 10,000
+Italy: 7,500
+Norway: 690
+Other (including concentration camps): 34,000

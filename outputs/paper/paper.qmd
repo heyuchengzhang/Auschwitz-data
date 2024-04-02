@@ -1,0 +1,69 @@
+---
+title: "The Multinational Narrative of Auschwitz's Victims and the Digital Preservation of Memory"
+author: "Heyucheng Zhang"
+thanks: "Code and data are available at: https://github.com/heyuchengzhang/Auschwitz-data Shiny Web App is availavle at: https://79muet-heyucheng-zhang.shinyapps.io/auschwitz-data/"
+format: pdf
+date: "1 April 2024"
+date-format: "D MMMM YYYY"
+toc: true
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#### Workspace setup ####
+library(shiny)
+library(ggplot2)
+library(tidyverse)
+library(knitr)
+
+# "analaysis_data" contains the nationality and number of victims, obtained from "https://encyclopedia.ushmm.org/content/en/article/auschwitz".
+analaysis_data <- data.frame(
+  Nationality = c("Hungarian", "Polish", "French", "Dutch", "Greek", "Bohemian and Moravian", "Slovakian", "Belgian", "Yugoslavian", "Italian", "Norwegian", "Other"),
+  Number_of_Victims = c(426000, 300000, 69000, 60000, 55000, 46000, 27000, 25000, 10000, 7500, 690, 34000)
+)
+```
+
+## Introduction
+
+The notorious Auschwitz complex, where the methodical murder of over 1.1 million people was carried out with chilling efficiency during World War II, is remembered as the pinnacle of Nazi cruelty. As a sobering symbol of the Holocaust, Auschwitz continues to serve as a terrifying reminder of the terrible side of humanity. The tapestry of victims caught in the razor-wire surrounding Auschwitz extended across Europe, including Jews, Poles, Roma, and countless others drawn into the evil network of the Nazi government. They were victims of a unique, incomprehensible tragedy, and despite the diverse fabric of their ethnic backgrounds, they were all brought together under the shadow of Nazi condemnation. The meticulously compiled statistics about the death toll at Auschwitz, which historians and academics worked on with serious dedication, serve as a dismal measure of the scope of the Holocaust. The paper explores the ethnic origins and number of Holocaust victims killed at Auschwitz concentration camp. It also creates an interactive webpage that instantly displays tables and graphs.
+
+
+## Data
+
+We looked at the ethnic origins and number of Holocaust victims killed at Auschwitz concentration camp. R[@citeR] was used to thoroughly analyze the data, while data manipulation tools like knitr [@citeknitr] and ggplot2[@citeggplot] were used to visualize the results. Finally, we made an interactive website by using shiny[@citeshiny].
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: tbl-all
+#| tbl-cap: The Number of Holocaust Victims at Auschwitz by Nationality
+
+analaysis_data |> kable()
+```
+
+```{r fig.width=15, fig.height=7}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-all
+#| fig-cap: The Number of Holocaust Victims at Auschwitz by Nationality
+# Create plot
+ggplot(analaysis_data, aes(x = Nationality, y = Number_of_Victims, fill = Nationality)) + 
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(x = "Nationality", y = "Number of Victims", fill = "Nationality")
+
+```
+
+## Discussion
+
+Unfathomable human loss is depicted in the icy math of the Auschwitz death toll. The dataset in front of us, which is displayed both graphically and tabularly, illustrates the scope of the Nazi campaign against Jews and other groups that were persecuted throughout the Holocaust. Constructed with great care and respect to historical detail, @tbl-all lists the victims according to their nationality, illustrating how far the Holocaust spread throughout Europe. An estimated 426,000 Hungarian Jews were killed in Auschwitz, making them the greatest group to be slaughtered there. This statistic is a somber reflection of the organized deportations that occurred during a time of relentless slaughter. The fact that the second-largest group, the Polish, lost over 300,000 members highlights how viciously the Nazis attacked the non-Jewish Polish populace. The dismal spectrum of the persecuted includes French, Dutch, Greek, and many other nationalities; their numbers might range from tens of thousands to only a few hundred, as in the case of the victims in Norway. The @fig-all's stark numbers, which are color-coded according to country, not only quantify but also represent the variety of backgrounds of those who experienced the horrors of Auschwitz. Every bar on the graph symbolizes a culture lost, a community uprooted, and innumerable individual tales of suffering and hopelessness.
+
+Therefore, this data represents a sacred duty for educators and historians to preserve and transmit, going beyond simple statistical record-keeping. It begs us to remember the people who lived behind the statistics, to share their tales, and to give tribute to their lives. It serves as a reminder that every statistic in the table and every bar graph segment represents a life that ended too soon—a person with aspirations, loves, and desires. The dataset acts as a reality check in a time when people are getting further and further disconnected from the generation that experienced these crimes firsthand. It serves as a stronghold against denial, forgetting, and the recurrence of the worst mistakes in history. As a result, this dataset contains both a somber reminiscence and a clear call to caution. It tells the story of a people under siege, but as it is shared, discussed, and pondered upon, it also inspires a story of learning, remembering, and the unwavering hope for a future free from such hatred and oppression.
+
+## Reference
