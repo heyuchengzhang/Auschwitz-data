@@ -34,7 +34,7 @@ The notorious Auschwitz complex, where the methodical murder of over 1.1 million
 
 ## Data
 
-We looked at the ethnic origins and number of Holocaust victims killed at Auschwitz concentration camp. R[@citeR] was used to thoroughly analyze the data, while data manipulation tools like knitr [@citeknitr] and ggplot2[@citeggplot] were used to visualize the results. Finally, we made an interactive website by using shiny[@citeshiny].
+We looked at the ethnic origins and number of Holocaust victims killed at Auschwitz concentration camp and got data from @citeushmm_auschwitz. R[@citeR] was used to thoroughly analyze the data, while data manipulation tools like knitr [@citeknitr] and ggplot2[@citeggplot] were used to visualize the results. Finally, we made an interactive website by using shiny[@citeshiny].
 
 ```{r}
 #| echo: false
